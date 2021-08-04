@@ -20,5 +20,9 @@ spec:
       containers:
       - image: nginx
         name: nginx
-        resources: {}
-status: {}
+        env:
+        - name: PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: creds
+              key: password
